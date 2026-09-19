@@ -2,19 +2,6 @@
 #include <raymath.h>
 #include <string>
 
-int player_x = 0;
-int player_y = 0;
-
-void RunJoystickSystem()
-{
-
-}
-
-void DrawJoystickSystem()
-{
-   
-}
-
 int main(void)
 {
     InitWindow(0, 0, "raylib [core] example - basic window");
