@@ -12,7 +12,7 @@ int main(void)
     const int JOYSTICK_X_ORIGIN = 150;
     int joystick_y = HEIGHT-150;
     const int JOYSTICK_Y_ORIGIN = HEIGHT-150;
-    const int JOYSTICK_RADIUS = 25.f;
+    const int JOYSTICK_RADIUS = 50.f;
 
     bool on_joystick = false;
 
@@ -23,7 +23,7 @@ int main(void)
     while (!WindowShouldClose())
     {
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) &&
-            CheckCollisionPointCircle(GetMousePosition(), {(float)joystick_x, (float)joystick_y}, 25.f)
+            CheckCollisionPointCircle(GetMousePosition(), {(float)joystick_x, (float)joystick_y}, JOYSTICK_RADIUS)
         )
         {
             on_joystick = true;
@@ -50,8 +50,8 @@ int main(void)
 
         ClearBackground(RAYWHITE);
 
-        DrawCircleLines(150, HEIGHT-150, 50, LIGHTGRAY);
-        DrawCircleV({(float)joystick_x, (float)joystick_y}, 25.f, GRAY);
+        DrawCircleLines(150, HEIGHT-150, JOYSTICK_RADIUS, LIGHTGRAY);
+        DrawCircleV({(float)joystick_x, (float)joystick_y}, JOYSTICK_RADIUS-25.f, GRAY);
 
         std::string joystick_text = "JOYSTICK X: " + std::to_string(joystick_x) + ", Y: " + std::to_string(joystick_y);
         DrawText(joystick_text.c_str(), 20, 20, 20, BLACK);
